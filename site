@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sierra Madre Coffee Co. — Fresh Chiapas Coffee</title>
+  <meta name="description" content="Single-origin Chiapas coffee roasted fresh and shipped direct. Start a subscription or try a sampler." />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111826;
+      --text:#e8eef7;
+      --muted:#a8b3c7;
+      --line:rgba(255,255,255,.10);
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --good:#34d399;
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:
+        radial-gradient(900px 520px at 25% 10%, rgba(125,211,252,.18), transparent 60%),
+        radial-gradient(900px 520px at 85% 30%, rgba(167,139,250,.18), transparent 60%),
+        radial-gradient(900px 520px at 60% 95%, rgba(52,211,153,.12), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0 4px;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center; text-decoration:none;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 30px rgba(125,211,252,.20);
+    }
+    .navlinks{display:flex; gap:14px; align-items:center;}
+    .navlinks a{
+      text-decoration:none; color:var(--muted); font-weight:600; font-size:14px;
+      padding:8px 10px; border-radius:12px;
+    }
+    .navlinks a:hover{background:rgba(255,255,255,.06); color:var(--text);}
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr; }
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroLeft{
+      padding:34px;
+      position:relative;
+      overflow:hidden;
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+      background: rgba(0,0,0,.18);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px; background: var(--good);
+      box-shadow: 0 0 0 6px rgba(52,211,153,.10);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:46px;
+      line-height:1.1;
+      letter-spacing:-.7px;
+    }
+    @media (max-width: 520px){
+      h1{font-size:36px;}
+    }
+    .sub{
+      color:var(--muted);
+      font-size:16px;
+      max-width: 58ch;
+      margin:0 0 18px;
+    }
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      transition: transform .08s ease, background .2s ease;
+    }
+    .btn:hover{background: rgba(255,255,255,.10);}
+    .btn:active{transform: translateY(1px);}
+    .btnPrimary{
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#04121f;
+      box-shadow: 0 18px 50px rgba(167,139,250,.18);
+    }
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:18px;
+    }
+    @media (max-width: 520px){
+      .kpis{grid-template-columns:1fr;}
+    }
+    .kpi{
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(0,0,0,.18);
+    }
+    .kpi strong{display:block; font-size:18px;}
+    .kpi span{color:var(--muted); font-size:13px;}
+    .heroRight{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .mini{
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(0,0,0,.18);
+    }
+    .mini h3{margin:0 0 6px; font-size:16px;}
+    .mini p{margin:0; color:var(--muted); font-size:14px;}
+    .stars{color:#ffd166; letter-spacing:1px;}
+    .pillRow{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;}
+    .pill{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:6px 10px;
+      border-radius: 999px;
+      font-weight:700;
+    }
+
+    section{margin-top:18px;}
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    @media (max-width: 920px){ .grid2{grid-template-columns:1fr;} }
+    .sectionCard{padding:22px;}
+    .sectionCard h2{margin:0 0 8px; font-size:22px; letter-spacing:-.2px;}
+    .sectionCard p{margin:0; color:var(--muted);}
+    .list{margin:12px 0 0; padding:0; list-style:none;}
+    .list li{
+      margin:10px 0;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:var(--muted);
+    }
+    .check{
+      width:18px; height:18px;
+      border-radius: 6px;
+      background: rgba(52,211,153,.14);
+      border:1px solid rgba(52,211,153,.35);
+      display:inline-flex; align-items:center; justify-content:center;
+      flex: 0 0 auto;
+      margin-top:1px;
+      color: var(--good);
+      font-weight:900;
+      font-size:12px;
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 920px){ .pricing{grid-template-columns:1fr;} }
+    .priceCard{
+      padding:18px;
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+    }
+    .priceCard.featured{
+      border-color: rgba(125,211,252,.35);
+      box-shadow: 0 18px 50px rgba(125,211,252,.12);
+      background: linear-gradient(180deg, rgba(125,211,252,.12), rgba(0,0,0,.18));
+    }
+    .priceTop{display:flex; justify-content:space-between; align-items:flex-start; gap:12px;}
+    .plan{font-weight:900; font-size:16px;}
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background: rgba(255,255,255,.04);
+      font-weight:800;
+    }
+    .money{
+      font-size:34px;
+      font-weight:950;
+      margin:10px 0 2px;
+      letter-spacing:-.6px;
+    }
+    .per{color:var(--muted); font-size:13px;}
+    .bullets{margin:12px 0 0; padding:0; list-style:none;}
+    .bullets li{margin:10px 0; color:var(--muted); display:flex; gap:10px;}
+    .fine{color:var(--muted); font-size:12px; margin-top:10px;}
+    .full{
+      width:100%;
+      margin-top:14px;
+    }
+
+    .form{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){ .form{grid-template-columns:1fr;} }
+    form{
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(0,0,0,.18);
+    }
+    label{display:block; font-size:13px; color:var(--muted); font-weight:800; margin:10px 0 6px;}
+    input, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      outline:none;
+      font-weight:700;
+    }
+    input::placeholder{color:rgba(168,179,199,.7)}
+    .row2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    @media (max-width: 520px){ .row2{grid-template-columns:1fr;} }
+    .note{
+      padding:22px;
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(167,139,250,.10), rgba(0,0,0,.18));
+    }
+    .note h3{margin:0 0 8px; font-size:18px;}
+    .note p{margin:0; color:var(--muted);}
+    footer{
+      margin:26px 0 6px;
+      padding:14px 0;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid var(--line);
+    }
+    .smallprint{opacity:.9}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="#top" aria-label="Sierra Madre Coffee Co.">
+        <span class="logo" aria-hidden="true"></span>
+        Sierra Madre Coffee Co.
+      </a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#why">Why us</a>
+        <a href="#plans">Plans</a>
+        <a href="#signup">Get started</a>
+      </nav>
+    </header>
+
+    <main id="top" class="hero">
+      <div class="card heroLeft">
+        <div class="badge"><span class="dot"></span> Roasted fresh • Shipped direct</div>
+        <h1>Single-Origin Chiapas Coffee — Roasted Fresh, Delivered Fast.</h1>
+        <p class="sub">
+          Mass-market coffee sits for months. We roast in small batches, ship immediately,
+          and keep flavor where it belongs: in your cup.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="#signup">Start Your Subscription →</a>
+          <a class="btn" href="#why">Learn About Our Farms</a>
+        </div>
+
+        <div class="kpis" aria-label="Key highlights">
+          <div class="kpi">
+            <strong>48 hrs</strong>
+            <span>Roast-to-ship goal</span>
+          </div>
+          <div class="kpi">
+            <strong>1,500m+</strong>
+            <span>Highland grown altitude</span>
+          </div>
+          <div class="kpi">
+            <strong>30-day</strong>
+            <span>Love-it guarantee</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card heroRight" aria-label="Trust and quick info">
+        <div class="mini">
+          <h3><span class="stars">★★★★★</span> 4.9/5 average</h3>
+          <p>Trusted by 1,200+ coffee drinkers who want real freshness, not stale beans.</p>
+          <div class="pillRow">
+            <span class="pill">No middlemen</span>
+            <span class="pill">Ethical sourcing</span>
+            <span class="pill">Small batch</span>
+            <span class="pill">US shipping</span>
+          </div>
+        </div>
+
+        <div class="mini">
+          <h3>What you’ll taste</h3>
+          <p>Bright cocoa, stone fruit, and a clean finish. Great for pour-over, espresso, or cold brew.</p>
+        </div>
+
+        <div class="mini">
+          <h3>Fast decision, no risk</h3>
+          <p>If it’s not the freshest coffee you’ve had in months, we’ll make it right.</p>
+        </div>
+      </aside>
+    </main>
+
+    <section id="why" class="grid2">
+      <div class="card sectionCard">
+        <h2>The problem: most coffee loses flavor before you buy it.</h2>
+        <p>
+          Coffee oxidizes. Oils fade. Notes flatten. That “meh” taste you’ve accepted is usually
+          a freshness problem, not your brewing.
+        </p>
+      </div>
+
+      <div class="card sectionCard">
+        <h2>The solution: roast fresh and ship immediately.</h2>
+        <p>We’re built around one standard: freshness you can taste, with direct relationships in Chiapas.</p>
+        <ul class="list">
+          <li><span class="check">✓</span><span>Harvested and sourced from highland farms (1,500m+)</span></li>
+          <li><span class="check">✓</span><span>Small-batch roasting to keep quality consistent</span></li>
+          <li><span class="check">✓</span><span>Roast-to-ship target within 48 hours</span></li>
+          <li><span class="check">✓</span><span>Transparent sourcing and fair producer relationships</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card sectionCard" aria-label="Testimonials">
+      <h2>What customers say</h2>
+      <p>Short, punchy social proof that removes hesitation.</p>
+      <div class="pricing" style="margin-top:14px;">
+        <div class="priceCard">
+          <div class="plan">“Freshest coffee I’ve ever had.”</div>
+          <div class="fine">— Austin, TX</div>
+        </div>
+        <div class="priceCard">
+          <div class="plan">“Bright, complex, and smooth.”</div>
+          <div class="fine">— Portland, OR</div>
+        </div>
+        <div class="priceCard">
+          <div class="plan">“The subscription is stupid easy.”</div>
+          <div class="fine">— Chicago, IL</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" class="card sectionCard">
+      <h2>Choose your plan</h2>
+      <p>Clear tiers. Simple value. No confusion.</p>
+
+      <div class="pricing">
+        <div class="priceCard">
+          <div class="priceTop">
+            <div>
+              <div class="plan">Explorer</div>
+              <div class="money">$18</div>
+              <div class="per">per month</div>
+            </div>
+            <div class="tag">Starter</div>
+          </div>
+          <ul class="bullets">
+            <li><span class="check">✓</span><span>2 bags / month</span></li>
+            <li><span class="check">✓</span><span>Choose roast level</span></li>
+            <li><span class="check">✓</span><span>Skip or pause anytime</span></li>
+          </ul>
+          <a class="btn full" href="#signup">Start Explorer</a>
+          <div class="fine">Best for casual daily drinkers.</div>
+        </div>
+
+        <div class="priceCard featured">
+          <div class="priceTop">
+            <div>
+              <div class="plan">Enthusiast</div>
+              <div class="money">$32</div>
+              <div class="per">per month</div>
+            </div>
+            <div class="tag">Most popular</div>
+          </div>
+          <ul class="bullets">
+            <li><span class="check">✓</span><span>4 bags / month</span></li>
+            <li><span class="check">✓</span><span>Priority roast scheduling</span></li>
+            <li><span class="check">✓</span><span>Free sampler add-on</span></li>
+          </ul>
+          <a class="btn btnPrimary full" href="#signup">Start Enthusiast</a>
+          <div class="fine">Best value for most households.</div>
+        </div>
+
+        <div class="priceCard">
+          <div class="priceTop">
+            <div>
+              <div class="plan">Roaster’s Choice</div>
+              <div class="money">$45</div>
+              <div class="per">per month</div>
+            </div>
+            <div class="tag">Limited</div>
+          </div>
+          <ul class="bullets">
+            <li><span class="check">✓</span><span>Microlot selections</span></li>
+            <li><span class="check">✓</span><span>Tasting notes included</span></li>
+            <li><span class="check">✓</span><span>Seasonal exclusives</span></li>
+          </ul>
+          <a class="btn full" href="#signup">Start Roaster’s Choice</a>
+          <div class="fine">For serious coffee nerds.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="signup" class="form" aria-label="Signup section">
+      <form onsubmit="return handleSubmit(event)">
+        <h2 style="margin:0 0 6px;">Start fresh today</h2>
+        <p style="margin:0 0 14px; color:var(--muted);">This form is for demo purposes. It shows a real CTA + lead capture flow.</p>
+
+        <label for="name">Name</label>
+        <input id="name" name="name" placeholder="Your name" required />
+
+        <div class="row2">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="you@email.com" required />
+          </div>
+          <div>
+            <label for="plan">Plan</label>
+            <select id="plan" name="plan" required>
+              <option value="" disabled selected>Select a plan</option>
+              <option>Explorer — $18/mo</option>
+              <option>Enthusiast — $32/mo</option>
+              <option>Roaster’s Choice — $45/mo</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btnPrimary full" type="submit">Get My First Roast →</button>
+        <p class="fine">30-day guarantee. No spam. Cancel anytime.</p>
+
+        <div id="success" style="display:none; margin-top:12px; padding:12px; border-radius:14px; border:1px solid rgba(52,211,153,.35); background: rgba(52,211,153,.10); color: var(--text); font-weight:800;">
+          ✅ Thanks! This is a demo page — your “signup” was captured locally.
+        </div>
+      </form>
+
+      <div class="note">
+        <h3>Portfolio note (what this demonstrates)</h3>
+        <p>
+          This landing page uses a conversion structure: clear UVP in the hero, problem/solution flow,
+          trust elements (ratings + testimonials), tiered pricing with a featured plan, and a lead capture CTA.
+          It’s mobile-first, fast, and readable.
+        </p>
+        <p class="fine" style="margin-top:10px;">
+          Tip: In real client work, the form would connect to Mailchimp, ConvertKit, Google Sheets, or a CRM.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="smallprint">
+        © <span id="yr"></span> Sierra Madre Coffee Co. • Mock portfolio project for landing page demonstration.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      // Demo behavior: show success message, do not actually send anywhere.
+      document.getElementById("success").style.display = "block";
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
